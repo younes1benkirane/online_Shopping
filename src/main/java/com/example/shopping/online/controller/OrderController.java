@@ -30,7 +30,7 @@ public class OrderController {
 	  }
 	
 	@GetMapping("/orders/{id}")
-	Optional<Order> one(@PathVariable String id) {
+	Optional<Order> one(@PathVariable Long id) {
 	    return orderRepository.findById(id);
 	  }
 	
@@ -41,7 +41,7 @@ public class OrderController {
 	}
 	
 	@DeleteMapping("/orders/{id}")
-	  void deleteOrderById(@PathVariable String id) {
+	  void deleteOrderById(@PathVariable Long id) {
 	    orderRepository.deleteById(id);
 	  }
 	

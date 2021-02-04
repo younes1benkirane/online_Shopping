@@ -26,6 +26,8 @@ import lombok.ToString;
 public class Order {
 
 	
+	private Long idOrder;
+	
 	private status status;
 	  
 	  
