@@ -5,6 +5,7 @@ import java.util.Objects;
 
 import javax.persistence.Entity;
 
+import ch.qos.logback.core.status.Status;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -25,7 +26,7 @@ import lombok.ToString;
 public class Order {
 
 	
-	private String status;
+	private status status;
 	  
 	  
 	private List<Product> products;
