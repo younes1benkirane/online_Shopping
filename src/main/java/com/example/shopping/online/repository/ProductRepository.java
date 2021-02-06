@@ -4,14 +4,14 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.online.shopping.online.model.Product;
+import com.example.shopping.online.model.Product;
 
 public interface ProductRepository extends JpaRepository<Product, Long>{
 	
-	List<Product> findAllOrderByNameAsc();
+	List<Product> findByOrderByNameAsc();
 	
-	List<Product>  findAllOrderByPriceAsc();
+	List<Product>  findByOrderByPriceAsc();
 	
-	List<Product> findAllOrderByWeightAsc();
+	List<Product> findByOrderByWeightAsc();
 
 }
