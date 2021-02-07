@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 @EnableAutoConfiguration @EnableJpaRepositories(basePackages="") @EnableTransactionManagement @EntityScan(basePackages="")
-//@EntityScan({"com.example.shopping.online.model.Bill","com.example.shopping.model.Order","com.example.shopping.online.model.Product",})
 public class ShoppingOnlineApplication {
 
 	public static void main(String[] args) {
