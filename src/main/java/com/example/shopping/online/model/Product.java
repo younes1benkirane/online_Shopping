@@ -3,6 +3,7 @@ package com.example.shopping.online.model;
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,7 +15,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 
@@ -48,17 +48,17 @@ public class Product implements Serializable{
 	private Long weight;
 	
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@ManyToOne(fetch = FetchType.LAZY, optional = false,cascade = CascadeType.ALL)
     @JoinColumn(name = "order_id", nullable = false)
-	private Order order;
+	private Order ordre;
 	
 	Product() {}
 
-	public Product(String name,Long price,Long weight,Order order) {
+	public Product(String name,Long price,Long weight,Order ordre) {
 		this.name = name;
 	    this.price=price;
 	    this.weight=weight;
-	    this.order=order;
+	    this.ordre=ordre;
 	  }
 
 	  public Long getIdentifier() {
@@ -80,7 +80,7 @@ public class Product implements Serializable{
 	  
 	  @JsonIgnore
 	  public Order getOrder() {
-		return order;
+		return ordre;
 	}
 
 	public void setIdentifier(Long identifier) {
@@ -100,7 +100,7 @@ public class Product implements Serializable{
 	}
 
 		public void setOrder(Order order) {
-			this.order = order;
+			this.ordre = order;
 		}
 
 	  @Override

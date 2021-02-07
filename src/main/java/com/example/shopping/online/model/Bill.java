@@ -13,7 +13,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 
@@ -50,7 +49,7 @@ public class Bill implements Serializable{
 	private Order ordered;
 	
 	
-	Bill() {}
+	public Bill() {}
 
 	public Bill(Long amount, Date creationDate,Order order) {
 
@@ -77,15 +76,23 @@ public class Bill implements Serializable{
 	  }
 	  
 	  @JsonIgnore
-	  public Order getOrder() {
+	  public Order getOrdered() {
 			return ordered;
 		}
 
-		public void setOrder(Order order) {
-			this.ordered = order;
+		public void setOrdered(Order ordered) {
+			this.ordered = ordered;
 		}
 
-	  @Override
+	public Long getIdBill() {
+			return idBill;
+		}
+
+		public void setIdBill(Long idBill) {
+			this.idBill = idBill;
+		}
+
+	@Override
 	  public boolean equals(Object o) {
 
     if (this == o)

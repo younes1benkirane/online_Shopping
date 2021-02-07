@@ -16,7 +16,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 
@@ -47,25 +46,34 @@ public class Order implements Serializable{
 	private status status;
 	  
 	
-	 @OneToMany(mappedBy = "order", fetch = FetchType.LAZY,
+	 @OneToMany(mappedBy = "ordre", fetch = FetchType.LAZY,
 	          cascade = CascadeType.ALL)
 	private List<Product> products=new ArrayList<>();
 	  
 	@Column(name="order_shipment_amount")
 	private Long shipmentAmount;
+	
+	
+	@Column(name="order_total_amount")
+	private Long totalAmount;
+	
 	  
 	  
 		
 		
-	Order() {}
+	public Order() {}
 
-	public Order(status statu, List<Product> products,Long shipmentAmount) {
+	public Order(status statu,Long shipmentAmount ,Long totalAmount ) {
 
 	    this.status = statu;
-	    this.products =  products;
 	    this.shipmentAmount=shipmentAmount;
+	    this.totalAmount=totalAmount;
 	  }
 
+	
+	 	public Long getIdOrder() {
+			return idOrder;
+		}
 		  public status getStatus() {
 		    return this.status;
 		  }
@@ -74,25 +82,40 @@ public class Order implements Serializable{
 		  public List<Product> getProducts() {
 		    return this.products;
 		  }
-
-		  public Long getShipmentAmount() {
-		    return this.shipmentAmount;
-		  }
 		  
+		  public Long getShipmentAmount() {
+				return shipmentAmount;
+			}
+		  
+		  public Long getTotalAmount() {
+				return totalAmount;
+			}
+		 
+		  
+		  
+
+		public void setIdOrder(Long idOrder) {
+				this.idOrder = idOrder;
+			}
 
 		  public void setStatus(status status) {
 		    this.status = status;
 	     }
 
 		  public void setProducts(List<Product> prodcuts) {
-		    this.products = products;
+		    this.products = prodcuts;
 		  }
 
-	  public void setShipment(Long shipmentAmount) {
-	    this.shipmentAmount = shipmentAmount;
-	  }
+		  public void setShipmentAmount(Long shipmentAmount) {
+			  this.shipmentAmount = shipmentAmount;
+		  }
+		  
 
-		  @Override
+		public void setTotalAmount(Long totalAmount) {
+			this.totalAmount = totalAmount;
+		}
+
+		@Override
 	  public boolean equals(Object o) {
 
 		    if (this == o)

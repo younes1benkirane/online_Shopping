@@ -38,7 +38,7 @@ public class BillController {
 	public ResponseEntity<Bill> createBill(@RequestBody Bill bill) {
 		try {
 			Bill _bill = billRepository
-					.save(new Bill(bill.getAmount(), bill.getCreationDate(),bill.getOrder()));
+					.save(new Bill(bill.getAmount(), bill.getCreationDate(),bill.getOrdered()));
 			return new ResponseEntity<>(_bill, HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);

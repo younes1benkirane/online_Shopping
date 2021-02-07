@@ -58,7 +58,7 @@ public class OrderController {
 	public ResponseEntity<Order> createOrder(@RequestBody Order order) {
 		try {
 			Order _order = orderRepository
-					.save(new Order(order.getStatus(), order.getProducts(), order.getShipmentAmount()));
+					.save(new Order(order.getStatus(), order.getShipmentAmount(),order.getTotalAmount()));
 			return new ResponseEntity<>(_order, HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
